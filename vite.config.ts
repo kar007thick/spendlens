@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
+      includeAssets: ["icon-192.png", "icon-512.png"],
       manifest: {
         name: "SpendLens",
         short_name: "SpendLens",
