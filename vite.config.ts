@@ -9,7 +9,8 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["icon-192.png", "icon-512.png"],
+      injectRegister: "auto",
+      includeAssets: ['icon-192.png', 'icon-512.png'],
       manifest: {
         name: "SpendLens",
         short_name: "SpendLens",
@@ -17,18 +18,24 @@ export default defineConfig({
         display: "standalone",
         theme_color: "#2563eb",
         background_color: "#ffffff",
+        scope: "/spendlens/",
         icons: [
           {
-            src: "/spendlens/icon-192.png",
+            src: "icon-192.png",
             sizes: "192x192",
-            type: "image/png"
+            type: "image/png",
+            purpose: "any maskable"
           },
           {
-            src: "/spendlens/icon-512.png",
+            src: "icon-512.png",
             sizes: "512x512",
-            type: "image/png"
+            type: "image/png",
+            purpose: "any maskable"
           }
         ]
+      },
+      devOptions: {
+        enabled: false // Disable PWA in dev mode to avoid resource issues
       }
     })
   ],
